@@ -25,10 +25,9 @@ end
 vim.api.nvim_create_autocmd('TextYankPost', {
 	desc = 'Highlights text after yanking',
 	group = vim.api.nvim_create_augroup('highlights_yank', {clear = true}),
-	callback = 
-		function()
-			vim.highlight.on_yank()
-		end,
+	callback = function()
+		vim.highlight.on_yank()
+	end,
 })
 
 -- Setting up LazyVim

@@ -33,4 +33,3 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- Setting up LazyVim
 
 require("config.lazy")
-require("plugins.catppuccin")

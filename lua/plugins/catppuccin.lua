@@ -1,10 +1,12 @@
-return { 
-	"catppuccin/nvim", 
-	name = "catppuccin", 
+return {
+	"catppuccin/nvim",
+	name = "catppuccin",
 	priority = 1000,
-	init = 
+	init =
 		function ()
 	 		vim.cmd.colorscheme "catppuccin"
 		end,
+	opts =
+		{ integrations = { cmp = true } }
 
 }

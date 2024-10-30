@@ -6,10 +6,13 @@ return
 	lazy = true,
 	config = function()
 		local cmp = require "cmp"
+		local luasnip = require "luasnip"
 		cmp.setup({
+			preselect = cmp.PreselectMode.None,
+
 			snippet = {
       			expand = function(args)
-        			require('luasnip').lsp_expand(args.body)
+        			luasnip.lsp_expand(args.body)
       			end,
     		},
 			window = {
@@ -22,6 +25,7 @@ return
       			['<C-Space>'] = cmp.mapping.complete(),
       			['<C-e>'] = cmp.mapping.abort(),
       			['<CR>'] = cmp.mapping.confirm({ select = true }),
+				['<Tab>'] = cmp.mapping.select_next_item()
     		}),
     		sources = cmp.config.sources({
       			{ name = 'nvim_lsp' },

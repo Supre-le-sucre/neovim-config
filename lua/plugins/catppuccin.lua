@@ -3,10 +3,17 @@ return {
 	name = "catppuccin",
 	priority = 1000,
 	init =
-		function ()
-	 		vim.cmd.colorscheme "catppuccin"
+		function()
+			vim.cmd.colorscheme "catppuccin"
 		end,
 	opts =
-		{ integrations = { cmp = true } }
+	{
+		default_integrations = true,
+		integrations = {
+			barbar = true,
+			cmp = true,
+			nvimtree = true,
+		}
+	}
 
 }

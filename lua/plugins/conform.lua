@@ -1,6 +1,6 @@
 return {
 	'stevearc/conform.nvim',
-	ft = { "lua, python", "c" },
+	ft = { "lua", "python", "c" },
 	opts = {
 		formatters_by_ft = {
 			lua = { "stylua" },

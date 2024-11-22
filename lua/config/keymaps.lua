@@ -23,3 +23,10 @@ map('t', '<F7>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>')
 
 -- NvimTree
 map('n', '<leader>e', '<Cmd>NvimTreeToggle<CR>', opts)
+
+-- Autobrackets
+map('i', '{', '{}<Esc>ha', opts)
+map('i', '(', '()<Esc>ha', opts)
+map('i', '[', '[]<Esc>ha', opts)
+map('i', '"', '""<Esc>ha', opts)
+map('i', '`', '``<Esc>ha', opts)

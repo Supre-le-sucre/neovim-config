@@ -22,3 +22,7 @@ lspconfig.lua_ls.setup {
 	},
 	globals = { 'vim' },
 }
+
+lspconfig.clojure_lsp.setup {
+	capabilities = capabilities
+}

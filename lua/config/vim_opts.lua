@@ -32,7 +32,6 @@ vim.api.nvim_create_autocmd('ColorScheme', {
 		vim.cmd("hi NvimTreeNormal guibg=None")
 		vim.cmd("hi NvimTreeWinSeparator guibg=None")
 		vim.cmd("hi NvimTreeStatuslineNc guibg=None")
-
 	end),
 	group = vim.api.nvim_create_augroup('foo', {}),
 })

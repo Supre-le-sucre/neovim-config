@@ -4,6 +4,7 @@
 
 require("config.vim_opts")
 require("config.keymaps")
+require("config.clipboard")
 
 -- Setting up LazyVim
 

@@ -21,17 +21,3 @@ vim.schedule(
 
 vim.g.loaded_netrw       = 1
 vim.g.loaded_netrwPlugin = 1
-
-
--- Colorscheme adjustments
-vim.api.nvim_create_autocmd('ColorScheme', {
-	callback = vim.schedule_wrap(function()
-		-- Makes barbar transparent
-		vim.cmd("hi BufferTabpageFill guibg=None")
-		-- NvimTree transparent
-		vim.cmd("hi NvimTreeNormal guibg=None")
-		vim.cmd("hi NvimTreeWinSeparator guibg=None")
-		vim.cmd("hi NvimTreeStatuslineNc guibg=None")
-	end),
-	group = vim.api.nvim_create_augroup('foo', {}),
-})

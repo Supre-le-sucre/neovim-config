@@ -10,5 +10,3 @@ require("config.clipboard")
 -- Setting up LazyVim
 
 require("config.lazy")
-
--- t

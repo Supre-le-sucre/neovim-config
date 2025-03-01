@@ -1,4 +1,14 @@
-if vim.fn.has("wsl") then
+local function isWsl()
+	if vim.fn.has('wsl') and vim.fn.has("unix") then
+		local lines = vim.fn.readfile("/proc/version")
+		if string.find(lines[1], "Microsoft") then
+			return 1
+		end
+	end
+	return 0
+end
+
+if isWsl() then
 	vim.opt.clipboard = "unnamedplus"
 
 	vim.g.clipboard = {

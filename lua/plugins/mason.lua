@@ -17,7 +17,7 @@ end
 
 
 -- If we are not in a restrained environnement, we should do nothing
-if string.find(get_hostname(), "ppti") then
+if not string.find(get_hostname(), "ppti") then
 	return {}
 end
 

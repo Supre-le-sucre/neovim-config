@@ -2,27 +2,61 @@ local lspconfig = require('lspconfig')
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 require("cmp_buffer")
 
-lspconfig.clangd.setup {
-	capabilities = capabilities
-}
+-- Mason is only used on specific environnement (see lua.plugins.mason)
+-- If mason is not there we just setup regularly
+if not pcall(require, "mason") then
 
-lspconfig.pyright.setup {
-	capabilities = capabilities
-}
+-- No mason env
 
-lspconfig.lua_ls.setup {
-	capabilities = capabilities,
-	settings = {
-		Lua = {
-			diagnostics = {
-				-- Get the language server to recognize the `vim` global
-				globals = { 'vim' },
+	lspconfig.clangd.setup {
+		capabilities = capabilities
+	}
+
+	lspconfig.pyright.setup {
+		capabilities = capabilities
+	}
+
+	lspconfig.lua_ls.setup {
+		capabilities = capabilities,
+		settings = {
+			Lua = {
+				diagnostics = {
+					-- Get the language server to recognize the `vim` global
+					globals = { 'vim' },
+				},
 			},
 		},
-	},
-	globals = { 'vim' },
-}
+		globals = { 'vim' },
+	}
 
-lspconfig.clojure_lsp.setup {
-	capabilities = capabilities
-}
+	lspconfig.clojure_lsp.setup {
+		capabilities = capabilities
+	}
+
+
+else
+
+-- Mason env
+
+	lspconfig.clangd.setup {
+		capabilities = capabilities
+	}
+
+	lspconfig.pylyzer.setup {
+		capabilities = capabilities
+	}
+
+	lspconfig.lua_ls.setup {
+		capabilities = capabilities,
+		settings = {
+			Lua = {
+				diagnostics = {
+					-- Get the language server to recognize the `vim` global
+					globals = { 'vim' },
+				},
+			},
+		},
+		globals = { 'vim' },
+	}
+
+end

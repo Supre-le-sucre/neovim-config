@@ -2,10 +2,10 @@ local function isWsl()
 	if vim.fn.has('wsl') and vim.fn.has("unix") then
 		local lines = vim.fn.readfile("/proc/version")
 		if string.find(lines[1], "Microsoft") then
-			return 1
+			return true
 		end
 	end
-	return 0
+	return false
 end
 
 if isWsl() then

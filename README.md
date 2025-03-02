@@ -6,4 +6,4 @@ This config will setup clipboard accrodingly. Make sure [win32yank](https://gith
 
 :warning: This configuration does not use Mason
 LSP needs to be installed via command line.  
-TODO: Make this config detects PPTI (and in the future, restrained environnement) so that Mason can be used to install LSP
+If on specific environnement, this config will use Mason

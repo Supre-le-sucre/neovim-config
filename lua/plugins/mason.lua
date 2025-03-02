@@ -24,6 +24,7 @@ end
 return {
 	"williamboman/mason.nvim",
 
+	cmd = { "Mason" }, -- We lazyload even though not recommended (don't want to load lsp on all files)
 	dependencies = { "neovim/nvim-lspconfig", "williamboman/mason-lspconfig.nvim" },
 
 	opts = {

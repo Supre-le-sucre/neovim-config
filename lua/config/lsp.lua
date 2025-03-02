@@ -5,8 +5,7 @@ require("cmp_buffer")
 -- Mason is only used on specific environnement (see lua.plugins.mason)
 -- If mason is not there we just setup regularly
 if not pcall(require, "mason") then
-
--- No mason env
+	-- No mason env
 
 	lspconfig.clangd.setup {
 		capabilities = capabilities
@@ -32,11 +31,12 @@ if not pcall(require, "mason") then
 	lspconfig.clojure_lsp.setup {
 		capabilities = capabilities
 	}
-
-
 else
+	require('mason-lspconfig').setup {
+		ensure_installed = { "clangd", "pylyzer", "lua_ls" },
+	}
 
--- Mason env
+	-- Mason env
 
 	lspconfig.clangd.setup {
 		capabilities = capabilities
@@ -58,5 +58,4 @@ else
 		},
 		globals = { 'vim' },
 	}
-
 end

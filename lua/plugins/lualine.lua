@@ -1,9 +1,9 @@
 local active_lsp = function()
 	local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
-    local clients = vim.lsp.get_active_clients()
-    	if next(clients) == nil then
-			return 'None'
-		end
+	local clients = vim.lsp.get_clients()
+	if next(clients) == nil then
+		return 'None'
+	end
 	local msg = ''
 	for _, client in ipairs(clients) do
 		local filetypes = client.config.filetypes
@@ -29,7 +29,7 @@ return {
 		},
 		sections = {
 			lualine_x = {
-				{ active_lsp, icon = ' LSP:', color = {fg = colors.pink, bold=true} },
+				{ active_lsp, icon = ' LSP:', color = { fg = colors.pink, bold = true } },
 				'encoding',
 				'fileformat',
 				'filetype',

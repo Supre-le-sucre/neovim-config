@@ -12,7 +12,10 @@ return {
 		vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics,
 			{ update_in_insert = true })
 	end, ]] --
+	ft = { 'ocaml', 'reason', 'menhir', 'ocamllex', 'ocamlinterface',
+		'python', 'lua', 'c', 'cpp', 'clojure' },
 	config = function()
+		require("config.lsp")
 		vim.api.nvim_create_autocmd('LspAttach', {
 			group = vim.api.nvim_create_augroup('kickstart-lsp-attach', { clear = true }),
 			callback = function(event)

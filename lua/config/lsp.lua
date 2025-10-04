@@ -1,21 +1,26 @@
-local lspconfig = require('lspconfig')
+-- local lspconfig = require("lspconfig") is deprecated
+local ft = vim.bo.filetype
+
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 require("cmp_buffer")
 
--- Mason is only used on specific environnement (see lua.plugins.mason)
--- If mason is not there we just setup regularly
-if not pcall(require, "mason") then
-	-- No mason env
 
-	lspconfig.clangd.setup {
+if ft == "c" then
+	vim.lsp.config("clangd", {
 		capabilities = capabilities
-	}
+	})
+	vim.lsp.enable("clangd")
+end
 
-	lspconfig.pyright.setup {
+if ft == "python" then
+	vim.lsp.config("pyright", {
 		capabilities = capabilities
-	}
+	})
+	vim.lsp.enable("pyright")
+end
 
-	lspconfig.lua_ls.setup {
+if ft == "lua" then
+	vim.lsp.config("lua_ls", {
 		capabilities = capabilities,
 		settings = {
 			Lua = {
@@ -26,36 +31,21 @@ if not pcall(require, "mason") then
 			},
 		},
 		globals = { 'vim' },
-	}
+	})
+	vim.lsp.enable("lua_ls")
+end
 
-	lspconfig.clojure_lsp.setup {
+if ft == "clojure" then
+	vim.lsp.config("clojure_lsp", {
 		capabilities = capabilities
-	}
-else
-	require('mason-lspconfig').setup {
-		ensure_installed = { "clangd", "pylyzer", "lua_ls" },
-	}
+	})
+	vim.lsp.enable("clojure_lsp")
+end
 
-	-- Mason env
-
-	lspconfig.clangd.setup {
-		capabilities = capabilities
-	}
-
-	lspconfig.pylyzer.setup {
-		capabilities = capabilities
-	}
-
-	lspconfig.lua_ls.setup {
+if ft == "ocaml" then
+	vim.lsp.config("ocamllsp", {
 		capabilities = capabilities,
-		settings = {
-			Lua = {
-				diagnostics = {
-					-- Get the language server to recognize the `vim` global
-					globals = { 'vim' },
-				},
-			},
-		},
-		globals = { 'vim' },
-	}
+		autostart = true
+	})
+	vim.lsp.enable("ocamllsp")
 end

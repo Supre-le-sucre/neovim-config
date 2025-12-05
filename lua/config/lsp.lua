@@ -5,7 +5,7 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities()
 require("cmp_buffer")
 
 
-if ft == "c" then
+if ft == "c" or ft == "cpp" then
 	vim.lsp.config("clangd", {
 		capabilities = capabilities
 	})

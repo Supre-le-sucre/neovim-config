@@ -63,3 +63,14 @@ if ft == "rust" then
 	})
 	vim.lsp.enable("rust_analyzer")
 end
+
+
+if ft == "typst" then
+	vim.lsp.config("tinymist",
+		{
+			cmd = { "tinymist" },
+			filetypes = { "typst" }
+		}
+	)
+	vim.lsp.enable("tinymist")
+end

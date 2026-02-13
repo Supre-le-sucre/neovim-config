@@ -13,7 +13,7 @@ return {
 			{ update_in_insert = true })
 	end, ]] --
 	ft = { 'ocaml', 'reason', 'menhir', 'ocamllex', 'ocamlinterface',
-		'python', 'lua', 'c', 'cpp', 'clojure', 'rust', 'typst', 'typescript' },
+		'python', 'lua', 'c', 'cpp', 'clojure', 'rust', 'typst', 'typescript', 'astro' },
 	config = function()
 		require("config.lsp")
 		-- Diagnostic Config

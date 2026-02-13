@@ -65,6 +65,15 @@ if ft == "rust" then
 end
 
 
+if ft == "typescript" then
+	vim.lsp.config("denols",
+		{
+			filetypes = { "typescript" }
+		}
+	)
+	vim.lsp.enable("denols")
+end
+
 if ft == "typst" then
 	vim.lsp.config("tinymist",
 		{
